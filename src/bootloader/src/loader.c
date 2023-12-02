@@ -29,7 +29,8 @@ EFI_STATUS load_segment(IN EFI_FILE* const kernel_img_file,
 	IN UINTN const segment_file_size,
 	IN UINTN const segment_memory_size,
 	IN EFI_PHYSICAL_ADDRESS const segment_physical_address)
-{
+{	
+	debug_print_line(L"ALERT: loading %llx\n", segment_physical_address);
 	/** Program status. */
 	EFI_STATUS status;
 	/** Buffer to hold the segment data. */
@@ -193,10 +194,14 @@ EFI_STATUS load_program_segments(IN EFI_FILE* const kernel_img_file,
 			}
 		}
 	} else if(file_class == ELF_FILE_CLASS_64) {
+		debug_print_line(L"Debug: Loading 64-bit ELF segments\n");
+
+
 		/** Program headers pointer. */
 		Elf64_Phdr* program_headers = (Elf64_Phdr*)kernel_program_headers_buffer;
 
 		for(p = 0; p < n_program_headers; p++) {
+			debug_print_line(L"Debug: addr type: %x\n", program_headers[p].p_paddr);
 			if(program_headers[p].p_type == PT_LOAD){
 				status = load_segment(kernel_img_file,
 					program_headers[p].p_offset,
@@ -208,6 +213,7 @@ EFI_STATUS load_program_segments(IN EFI_FILE* const kernel_img_file,
 				}
 
 				n_segments_loaded++;
+				
 			}
 		}
 	}

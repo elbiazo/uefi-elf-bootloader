@@ -1,0 +1,19 @@
+{
+	"files": [
+		{
+			"path": "src/bootloader/src/loader.c",
+			"bookmarks": [
+				{
+					"line": 32,
+					"column": 42,
+					"label": "error at"
+				},
+				{
+					"line": 203,
+					"column": 40,
+					"label": "calling"
+				}
+			]
+		}
+	]
+}

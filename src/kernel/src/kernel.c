@@ -75,10 +75,11 @@ void kernel_main(Boot_Info* boot_info)
 	// Initialise the UART.
 	uart_initialize();
 	uart_puts("Kernel: Initialised.\n");
+	uart_puts("THIS IS COOL");
 
-	#if DRAW_TEST_SCREEN
-		draw_test_screen(boot_info);
-	#endif
+	// #if DRAW_TEST_SCREEN
+	draw_test_screen(boot_info);
+	// #endif
 
 	while(1);
 }
