@@ -1,6 +1,8 @@
 #include <stdint.h>
 #include <graphics.h>
 
+// read this. get serial working https://forum.osdev.org/viewtopic.php?f=1&t=43958&start=15
+// https://gitlab.com/bztsrc/bootboot/-/tree/master/mykernel
 /**
  * draw_rect
  */
