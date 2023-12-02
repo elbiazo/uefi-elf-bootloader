@@ -6,6 +6,8 @@
  * Contains definitions for VGA functionality.
  */
 
+
+// This probably should work? explanation here https://stackoverflow.com/questions/75050266/enabling-the-vga-13h-video-mode-on-a-modern-pc-in-uefi-via-a-uefi-bootloader-wr
 #include <vga.h>
 #include <stddef.h>
 #include <stdint.h>
